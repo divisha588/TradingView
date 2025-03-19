@@ -1,0 +1,187 @@
+
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11> python testfile.py
+Traceback (most recent call last):
+  File "testfile.py", line 1, in <module>
+    import yfinance as yf
+ModuleNotFoundError: No module named 'yfinance'
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11> pip install yfinance
+Collecting yfinance
+  Downloading yfinance-0.2.54-py2.py3-none-any.whl (108 kB)
+     |████████████████████████████████| 108 kB 819 kB/s
+Collecting pytz>=2022.5
+  Downloading pytz-2025.1-py2.py3-none-any.whl (507 kB)
+     |████████████████████████████████| 507 kB 3.3 MB/s
+Collecting frozendict>=2.3.4
+  Downloading frozendict-2.4.6-cp37-cp37m-win_amd64.whl (37 kB)
+Collecting platformdirs>=2.0.0
+  Downloading platformdirs-4.0.0-py3-none-any.whl (17 kB)
+Collecting peewee>=3.16.2
+  Downloading peewee-3.17.9.tar.gz (3.0 MB)
+     |████████████████████████████████| 3.0 MB 3.2 MB/s
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+    Preparing wheel metadata ... done
+Collecting requests>=2.31
+  Downloading requests-2.31.0-py3-none-any.whl (62 kB)
+     |████████████████████████████████| 62 kB 221 kB/s
+Collecting numpy>=1.16.5
+  Downloading numpy-1.21.6-cp37-cp37m-win_amd64.whl (14.0 MB)
+     |████████████████████████████████| 14.0 MB 297 kB/s
+Collecting beautifulsoup4>=4.11.1
+  Downloading beautifulsoup4-4.13.3-py3-none-any.whl (186 kB)
+     |████████████████████████████████| 186 kB 1.3 MB/s
+Collecting pandas>=1.3.0
+  Downloading pandas-1.3.5-cp37-cp37m-win_amd64.whl (10.0 MB)
+     |████████████████████████████████| 10.0 MB 6.8 MB/s
+Collecting multitasking>=0.0.7
+  Downloading multitasking-0.0.11-py3-none-any.whl (8.5 kB)
+Collecting typing-extensions>=4.7.1; python_version < "3.8"
+  Downloading typing_extensions-4.7.1-py3-none-any.whl (33 kB)
+Collecting idna<4,>=2.5
+  Downloading idna-3.10-py3-none-any.whl (70 kB)
+     |████████████████████████████████| 70 kB 2.2 MB/s
+Collecting urllib3<3,>=1.21.1
+  Downloading urllib3-2.0.7-py3-none-any.whl (124 kB)
+     |████████████████████████████████| 124 kB 1.7 MB/s
+Collecting certifi>=2017.4.17
+  Downloading certifi-2025.1.31-py3-none-any.whl (166 kB)
+     |████████████████████████████████| 166 kB 2.2 MB/s
+Collecting charset-normalizer<4,>=2
+  Downloading charset_normalizer-3.4.1-cp37-cp37m-win_amd64.whl (100 kB)
+     |████████████████████████████████| 100 kB 2.0 MB/s
+Collecting soupsieve>1.2
+  Downloading soupsieve-2.4.1-py3-none-any.whl (36 kB)
+Collecting python-dateutil>=2.7.3
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+     |████████████████████████████████| 229 kB 3.3 MB/s
+Collecting six>=1.5
+  Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Building wheels for collected packages: peewee
+  Building wheel for peewee (PEP 517) ... done
+  Created wheel for peewee: filename=peewee-3.17.9-py3-none-any.whl size=139043 sha256=b0bb5cc6fb39f2634d42cb10d466b30180fea0c6c9796b846759dd2cfb90558e
+  Stored in directory: c:\users\dell\appdata\local\pip\cache\wheels\21\d9\a2\cd33f5847a7a914f0b2029d6be0067ef74933f751776f2b241Successfully built peewee
+Installing collected packages: pytz, frozendict, typing-extensions, platformdirs, peewee, idna, urllib3, certifi, charset-normalizer, requests, numpy, soupsieve, beautifulsoup4, six, python-dateutil, pandas, multitasking, yfinance
+  WARNING: The script normalizer.exe is installed in 'C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.7_qbz5n2kfra8p0\LocalCache\local-packages\Python37\Scripts' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script f2py.exe is installed in 'C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.7_qbz5n2kfra8p0\LocalCache\local-packages\Python37\Scripts' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+ERROR: Could not install packages due to an EnvironmentError: [Errno 28] No space left on device
+
+WARNING: You are using pip version 20.1.1; however, version 24.0 is available.
+You should consider upgrading via the 'C:\Users\dell\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.7_qbz5n2kfra8p0\python.exe -m pip install --upgrade pip' command.
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11> 
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11> 
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11> python.exe -m pip install --upgrade pip
+Collecting pip
+  Downloading pip-24.0-py3-none-any.whl (2.1 MB)
+     |████████████████████████████████| 2.1 MB 656 kB/s
+Installing collected packages: pip
+  WARNING: The scripts pip.exe, pip3.10.exe, pip3.7.exe and pip3.exe are installed in 'C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.7_qbz5n2kfra8p0\LocalCache\local-packages\Python37\Scripts' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed pip-24.0
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11> pip install yfinance
+Collecting yfinance
+  Downloading yfinance-0.2.54-py2.py3-none-any.whl.metadata (5.8 kB)
+Collecting pandas>=1.3.0 (from yfinance)
+  Downloading pandas-1.3.5-cp37-cp37m-win_amd64.whl.metadata (12 kB)
+Requirement already satisfied: numpy>=1.16.5 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from yfinance) (1.21.6)
+Requirement already satisfied: requests>=2.31 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from yfinance) (2.31.0)
+Collecting multitasking>=0.0.7 (from yfinance)
+  Downloading multitasking-0.0.11-py3-none-any.whl.metadata (5.5 kB)
+Requirement already satisfied: platformdirs>=2.0.0 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from yfinance) (4.0.0)
+Requirement already satisfied: pytz>=2022.5 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from yfinance) (2025.1)
+Requirement already satisfied: frozendict>=2.3.4 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from yfinance) (2.4.6)
+Requirement already satisfied: peewee>=3.16.2 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from yfinance) (3.17.9)
+Requirement already satisfied: beautifulsoup4>=4.11.1 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from yfinance) (4.13.3)
+Requirement already satisfied: soupsieve>1.2 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from beautifulsoup4>=4.11.1->yfinance) (2.4.1)
+Requirement already satisfied: typing-extensions>=4.0.0 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from beautifulsoup4>=4.11.1->yfinance) (4.7.1)
+Requirement already satisfied: python-dateutil>=2.7.3 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from pandas>=1.3.0->yfinance) (2.9.0.post0)
+Requirement already satisfied: charset-normalizer<4,>=2 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from requests>=2.31->yfinance) (3.4.1)
+Requirement already satisfied: idna<4,>=2.5 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from requests>=2.31->yfinance) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from requests>=2.31->yfinance) (2.0.7)
+Requirement already satisfied: certifi>=2017.4.17 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from requests>=2.31->yfinance) (2025.1.31)
+Requirement already satisfied: six>=1.5 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from python-dateutil>=2.7.3->pandas>=1.3.0->yfinance) (1.17.0)
+Downloading yfinance-0.2.54-py2.py3-none-any.whl (108 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 108.7/108.7 kB 1.3 MB/s eta 0:00:00
+Downloading multitasking-0.0.11-py3-none-any.whl (8.5 kB)
+Downloading pandas-1.3.5-cp37-cp37m-win_amd64.whl (10.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.0/10.0 MB 2.6 MB/s eta 0:00:00
+Installing collected packages: multitasking, pandas, yfinance
+  WARNING: The script sample.exe is installed in 'C:\Users\dell\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.7_qbz5n2kfra8p0\LocalCache\local-packages\Python37\Scripts' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed multitasking-0.0.11 pandas-1.3.5 yfinance-0.2.54
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11> pip install tradingview_ta
+Requirement already satisfied: tradingview_ta in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (3.3.0)
+Requirement already satisfied: requests in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from tradingview_ta) (2.31.0)
+Requirement already satisfied: charset-normalizer<4,>=2 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from requests->tradingview_ta) (3.4.1)
+Requirement already satisfied: idna<4,>=2.5 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from requests->tradingview_ta) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from requests->tradingview_ta) (2.0.7)
+Requirement already satisfied: certifi>=2017.4.17 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from requests->tradingview_ta) (2025.1.31)
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11> 
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11>
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11>
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11>
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11>
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11>
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11>
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11>
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11>
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11> pip install tradingview_ta
+Requirement already satisfied: tradingview_ta in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (3.3.0)
+Requirement already satisfied: requests in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from tradingview_ta) (2.31.0)
+Requirement already satisfied: charset-normalizer<4,>=2 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from requests->tradingview_ta) (3.4.1)
+Requirement already satisfied: idna<4,>=2.5 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from requests->tradingview_ta) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from requests->tradingview_ta) (2.0.7)
+Requirement already satisfied: certifi>=2017.4.17 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from requests->tradingview_ta) (2025.1.31)
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11> 
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11>
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11>
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11>
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11>
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11>
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11> pip install nselib
+Collecting nselib
+  Downloading nselib-1.6-py3-none-any.whl.metadata (4.8 kB)
+Requirement already satisfied: requests in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from nselib) (2.31.0)
+Requirement already satisfied: pandas in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from nselib) (1.3.5)
+Collecting scipy (from nselib)
+  Downloading scipy-1.7.3-cp37-cp37m-win_amd64.whl.metadata (2.2 kB)
+Requirement already satisfied: python-dateutil>=2.7.3 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from pandas->nselib) (2.9.0.post0)
+Requirement already satisfied: pytz>=2017.3 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from pandas->nselib) (2025.1)
+Requirement already satisfied: numpy>=1.17.3 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from pandas->nselib) (1.21.6)
+Requirement already satisfied: charset-normalizer<4,>=2 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from requests->nselib) (3.4.1)
+Requirement already satisfied: idna<4,>=2.5 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from requests->nselib) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from requests->nselib) (2.0.7)
+Requirement already satisfied: certifi>=2017.4.17 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from requests->nselib) (2025.1.31)
+Requirement already satisfied: six>=1.5 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from python-dateutil>=2.7.3->pandas->nselib) (1.17.0)
+Downloading nselib-1.6-py3-none-any.whl (19 kB)
+Downloading scipy-1.7.3-cp37-cp37m-win_amd64.whl (34.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 34.1/34.1 MB 2.4 MB/s eta 0:00:00
+Installing collected packages: scipy, nselib
+ERROR: Could not install packages due to an OSError: [Errno 28] No space left on device
+
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11> pip install nselib
+Collecting nselib
+  Using cached nselib-1.6-py3-none-any.whl.metadata (4.8 kB)
+Requirement already satisfied: requests in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from nselib) (2.31.0)
+Requirement already satisfied: pandas in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from nselib) (1.3.5)
+Requirement already satisfied: scipy in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from nselib) (1.7.3)
+Requirement already satisfied: python-dateutil>=2.7.3 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from pandas->nselib) (2.9.0.post0)
+Requirement already satisfied: pytz>=2017.3 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from pandas->nselib) (2025.1)
+Requirement already satisfied: numpy>=1.17.3 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from pandas->nselib) (1.21.6)
+Requirement already satisfied: charset-normalizer<4,>=2 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from requests->nselib) (3.4.1)
+Requirement already satisfied: idna<4,>=2.5 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from requests->nselib) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from requests->nselib) (2.0.7)
+Requirement already satisfied: certifi>=2017.4.17 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from requests->nselib) (2025.1.31)
+Requirement already satisfied: six>=1.5 in c:\users\dell\appdata\local\packages\pythonsoftwarefoundation.python.3.7_qbz5n2kfra8p0\localcache\local-packages\python37\site-packages (from python-dateutil>=2.7.3->pandas->nselib) (1.17.0)
+Using cached nselib-1.6-py3-none-any.whl (19 kB)
+Installing collected packages: nselib
+Successfully installed nselib-1.6
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11> python testfile.py
+YF.download() has changed argument auto_adjust default to True
+[*********************100%***********************]  1 of 1 completed
+Traceback (most recent call last):
+  File "testfile.py", line 14, in <module>
+    print(f"{ticker} price on {data_2019.index[-1].date()} was {price_2019:.2f}")
+TypeError: unsupported format string passed to Series.__format__
+PS C:\Users\dell\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11>  
