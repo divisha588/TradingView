@@ -1,34 +1,43 @@
 import yfinance as yf
 import pandas as pd
 from datetime import datetime, timedelta
+from tabulate import tabulate  # For better table formatting
 
 def get_last_available_price(ticker_symbol, reference_date):
     """
     Fetch the last available closing price for the given ticker before the reference date.
     """
     try:
-        # Download historical data
-        data = yf.download(ticker_symbol, start=reference_date - timedelta(days=10), end=reference_date)
+        # Ensure reference_date is a datetime object
+        reference_datetime = datetime.combine(reference_date, datetime.min.time())
 
-        # Debugging: Print the retrieved table properly formatted
-        if data is None or data.empty:
+        # Download historical data (10 days back to account for market holidays)
+        data = yf.download(ticker_symbol, start=reference_datetime - timedelta(days=10), 
+                           end=reference_datetime, auto_adjust=True, progress=False)
+
+        # Check if data is empty
+        if data.empty:
             print(f"❌ No data found for {ticker_symbol} before {reference_date}")
             return None, None
 
+        # Select last 5 days for display
+        table_data = data[['Open', 'High', 'Low', 'Close', 'Volume']].tail()
+        table_data.index = table_data.index.date  # Convert index to readable date format
+
         # Print formatted table
-        print("\n📊 Downloaded Data:\n")
-        print(data[['Open', 'High', 'Low', 'Close', 'Volume']].tail().to_string())
+        print("\n📊 Stock Data (Last 5 Days):\n")
+        print(tabulate(table_data, headers="keys", tablefmt="fancy_grid", floatfmt=".2f"))
 
         # Get the last available closing price
         last_date = data.index[-1].date()
         last_price = data['Close'].iloc[-1]
 
-        if pd.isna(last_price).any():
+        if pd.isna(last_price):
             print(f"❌ No valid closing price found for {ticker_symbol} on {last_date}")
             return None, None
 
         print(f"\n✅ Using last available price on {last_date}: {last_price:.2f}")
-        return last_price, last_date
+        return float(last_price), last_date
 
     except Exception as e:
         print(f"❌ Error fetching data for {ticker_symbol}: {e}")
@@ -44,6 +53,7 @@ if last_price is not None:
     print(f"\n🎯 Final Result: {ticker_symbol} last price on {last_date}: {last_price:.2f}")
 else:
     print(f"\n⚠️ Could not retrieve a valid price for {ticker_symbol}.")
+
 
 
 
