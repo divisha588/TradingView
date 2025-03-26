@@ -29,7 +29,7 @@ def compare_stock_prices(ticker, data, reference_price, threshold=0.05):
     # Prepare table data
     table_data = []
     for date, row in data.iterrows():
-        price = row['Close']
+        price = float(row['Close'])  # Ensure price is a float
         within_range = "✅ Yes" if lower_bound <= price <= upper_bound else "❌ No"
         table_data.append([date, f"{price:.2f}", within_range])
 
@@ -49,8 +49,6 @@ stock_data = get_stock_prices(ticker_symbol, start_date, end_date)
 # 🔍 Compare with reference price if data is found
 if stock_data is not None:
     compare_stock_prices(ticker_symbol, stock_data, reference_price)
-
-
 
 
 
