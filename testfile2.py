@@ -1,70 +1,59 @@
 import yfinance as yf
 import pandas as pd
-from tabulate import tabulate  # For pretty table formatting
+from tabulate import tabulate
 
 def get_last_available_price(ticker, reference_date):
     """
-    Fetch historical stock data and return the last available closing price before or on reference_date.
+    Get the last available closing price before or on the given reference date.
     """
-    data = yf.download(ticker, start="2019-12-01", end=reference_date)
+    data = yf.download(ticker, end=reference_date, progress=False)
 
     if data.empty:
-        print(f"❌ No data found for {ticker} in December 2019.")
+        print(f"❌ No data found for {ticker} up to {reference_date}.")
         return None
 
-    last_price = data['Close'].dropna().iloc[-1]  # Get last valid closing price
+    last_price = data['Close'].iloc[-1]
     last_date = data.index[-1].date()
-    print(f"✅ Using last available price on {last_date}: {float(last_price):.2f}")
-    return float(last_price)  # Convert to float
+    print(f"✅ Using last available price on {last_date}: {last_price:.2f}")
+    return float(last_price)  # Ensure it's a float
 
-def fetch_stock_data(ticker, start_date, end_date):
+def compare_prices_and_display_table(ticker, reference_price, threshold=0.05):
     """
-    Fetch stock data for a specific date range.
+    Compare daily stock prices with the reference price and display results in a table.
     """
-    data = yf.download(ticker, start=start_date, end=end_date)
-    
+    data = yf.download(ticker, period="1mo", progress=False)  # Fetch last month’s data
     if data.empty:
-        print(f"❌ No stock data found for {ticker} in {start_date} - {end_date}.")
-        return None
-    
-    return data[['Close']]  # Only keep closing prices
-
-def compare_prices_and_display_table(ticker, data, reference_price, threshold=0.05):
-    """
-    Compare stock prices with the reference price and display results in a table.
-    """
-    if data is None or reference_price is None:
-        print("⚠️ No valid data to compare.")
+        print(f"❌ No recent data found for {ticker}.")
         return
 
-    lower_bound = reference_price * (1 - threshold)
-    upper_bound = reference_price * (1 + threshold)
+    data = data[['Close']].copy()
+    data['Lower Bound'] = reference_price * (1 - threshold)
+    data['Upper Bound'] = reference_price * (1 + threshold)
+    data['Within ±5%?'] = data['Close'].between(data['Lower Bound'], data['Upper Bound'])
+    
+    # Convert to ✅/❌ symbols
+    data['Within ±5%?'] = data['Within ±5%?'].map({True: "✅ Yes", False: "❌ No"})
 
-    # Prepare data for table
-    table_data = []
-    for date, row in data.iterrows():
-        price = row['Close'].item()  # ✅ Convert to float correctly
-        within_range = "✅ Yes" if lower_bound <= price <= upper_bound else "❌ No"
-        table_data.append([date.date(), round(price, 2), within_range])
+    # Print reference price and bounds
+    print(f"\n📌 Reference Price (2019 or closest available): {reference_price:.2f}")
+    print(f"📉 Lower Bound: {data['Lower Bound'].iloc[0]:.2f}, 📈 Upper Bound: {data['Upper Bound'].iloc[0]:.2f}")
 
-    # Print table
-    print("\n📊 Daily Stock Price Comparison:")
-    print(tabulate(table_data, headers=["Date", "Closing Price", f"Within ±{threshold*100}%?"], tablefmt="fancy_grid"))
+    # Format table output
+    table = tabulate(data[['Close', 'Within ±5%?']], headers=["Date", "Closing Price", "Within ±5%?"], tablefmt="fancy_grid")
+    print("\n📊 Daily Stock Price Comparison:\n")
+    print(table)
 
-# 🎯 Define stock ticker and date range
+# 🎯 Define stock ticker and reference date
 ticker_symbol = "RELIANCE.NS"
 reference_date = "2019-12-31"
-comparison_start = "2024-02-01"
-comparison_end = "2024-02-28"
 
-# 🔄 Get reference price
+# 🔄 Get last available stock price before reference date
 reference_price = get_last_available_price(ticker_symbol, reference_date)
 
-# 📉 Fetch current stock prices for the given date range
-stock_data = fetch_stock_data(ticker_symbol, comparison_start, comparison_end)
+# 🔍 Compare with recent prices if reference price was found
+if reference_price is not None:
+    compare_prices_and_display_table(ticker_symbol, reference_price)
 
-# 🔍 Compare and display results
-compare_prices_and_display_table(ticker_symbol, stock_data, reference_price)
 
 
 
