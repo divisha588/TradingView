@@ -9,23 +9,25 @@ def get_last_available_price(ticker_symbol, reference_date):
     try:
         # Download historical data
         data = yf.download(ticker_symbol, start=reference_date - timedelta(days=10), end=reference_date)
-        
-        # Debugging: Print the last few rows
-        print("Downloaded Data:\n", data.tail())
 
-        if data.empty:
+        # Debugging: Print the retrieved table properly formatted
+        if data is None or data.empty:
             print(f"❌ No data found for {ticker_symbol} before {reference_date}")
             return None, None
-        
+
+        # Print formatted table
+        print("\n📊 Downloaded Data:\n")
+        print(data[['Open', 'High', 'Low', 'Close', 'Volume']].tail().to_string())
+
         # Get the last available closing price
         last_date = data.index[-1].date()
         last_price = data['Close'].iloc[-1]
 
-        if pd.isna(last_price):
+        if pd.isna(last_price).any():
             print(f"❌ No valid closing price found for {ticker_symbol} on {last_date}")
             return None, None
 
-        print(f"✅ Using last available price on {last_date}: {last_price:.2f}")
+        print(f"\n✅ Using last available price on {last_date}: {last_price:.2f}")
         return last_price, last_date
 
     except Exception as e:
@@ -39,9 +41,10 @@ reference_date = datetime.today().date()
 last_price, last_date = get_last_available_price(ticker_symbol, reference_date)
 
 if last_price is not None:
-    print(f"Final Result: {ticker_symbol} last price on {last_date}: {last_price:.2f}")
+    print(f"\n🎯 Final Result: {ticker_symbol} last price on {last_date}: {last_price:.2f}")
 else:
-    print(f"Could not retrieve a valid price for {ticker_symbol}.")
+    print(f"\n⚠️ Could not retrieve a valid price for {ticker_symbol}.")
+
 
 
 
