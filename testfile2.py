@@ -1,54 +1,48 @@
 import yfinance as yf
 import pandas as pd
-from tabulate import tabulate  # For displaying tables
 
 def get_stock_prices(ticker, start_date, end_date):
     """
-    Fetch historical stock data for a given date range.
+    Fetch historical stock data for the given date range.
+    Returns a DataFrame with Open, High, Low, and Close prices.
     """
     data = yf.download(ticker, start=start_date, end=end_date)
-
     if data.empty:
-        print(f"❌ No data found for {ticker} from {start_date} to {end_date}.")
+        print(f"❌ No data found for {ticker} in {start_date} - {end_date}.")
         return None
+    return data[['Open', 'High', 'Low', 'Close']]
 
-    data = data[['Close']]  # Keep only closing prices
-    data.index = data.index.date  # Convert index to simple dates
-    return data
-
-def compare_stock_prices(ticker, data, reference_price, threshold=0.05):
+def compare_stock_prices(ticker, historical_data, reference_price, threshold=0.05):
     """
-    Compare each day's stock price with a reference price.
+    Compare daily closing prices with a reference price.
     """
-    if data is None:
-        return
-
     lower_bound = reference_price * (1 - threshold)
     upper_bound = reference_price * (1 + threshold)
 
-    # Prepare table data
-    table_data = []
-    for date, row in data.iterrows():
-        price = row['Close']  # Ensure price is a float
-        within_range = "✅ Yes" if lower_bound <= price <= upper_bound else "❌ No"
-        table_data.append([date, f"{price:.2f}", within_range])
+    # Create a new column to check if price is within range
+    historical_data['Within ±5%?'] = historical_data['Close'].apply(
+        lambda price: "✅ Yes" if lower_bound <= price <= upper_bound else "❌ No"
+    )
 
-    # Print table
+    # Format the table
     print("\n📊 Daily Stock Price Comparison:\n")
-    print(tabulate(table_data, headers=["Date", "Closing Price", "Within ±5%?"], tablefmt="fancy_grid"))
+    print(historical_data[['Close', 'Within ±5%?']].to_markdown())
 
 # 🎯 Define stock ticker and date range
 ticker_symbol = "RELIANCE.NS"
-start_date = "2024-02-01"  # Start date for daily data
-end_date = "2024-02-28"    # End date for daily data
-reference_price = 2500.00   # Example reference price (change as needed)
 
-# 🔄 Get stock prices
-stock_data = get_stock_prices(ticker_symbol, start_date, end_date)
+# 🔄 Get 2019's last price automatically
+price_2019_data = get_stock_prices(ticker_symbol, "2019-12-31", "2019-12-31")
+if price_2019_data is not None:
+    reference_price = price_2019_data['Close'].iloc[0]
+    print(f"\n🎯 Reference Price (2019 Last Close): {reference_price:.2f}")
 
-# 🔍 Compare with reference price if data is found
-if stock_data is not None:
-    compare_stock_prices(ticker_symbol, stock_data, reference_price)
+    # 🔄 Get latest stock prices for comparison
+    latest_data = get_stock_prices(ticker_symbol, "2024-02-01", "2024-02-29")
+
+    if latest_data is not None:
+        compare_stock_prices(ticker_symbol, latest_data, reference_price)
+
 
 
 
