@@ -43,7 +43,7 @@ def compare_prices_and_display_table(ticker, data, reference_price, threshold=0.
     # Prepare data for table
     table_data = []
     for date, row in data.iterrows():
-        price = row['Close']
+        price = row['Close'].item()  # ✅ Convert to float correctly
         within_range = "✅ Yes" if lower_bound <= price <= upper_bound else "❌ No"
         table_data.append([date.date(), round(price, 2), within_range])
 
@@ -65,6 +65,7 @@ stock_data = fetch_stock_data(ticker_symbol, comparison_start, comparison_end)
 
 # 🔍 Compare and display results
 compare_prices_and_display_table(ticker_symbol, stock_data, reference_price)
+
 
 
 
