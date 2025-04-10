@@ -12,10 +12,10 @@ def get_last_available_price(ticker_symbol, reference_date):
         reference_datetime = datetime.combine(reference_date, datetime.min.time())
 
         # Download historical data (10 days back to account for market holidays)
-        # data = yf.download(ticker_symbol, start=reference_datetime - timedelta(days=10), 
-        #                    end=reference_datetime, auto_adjust=True, progress=False)
-        data = yf.download(ticker_symbol, start=reference_datetime - timedelta(days=10),
-                   end=reference_datetime, auto_adjust=True, progress=False, verify=False)
+        data = yf.download(ticker_symbol, start=reference_datetime - timedelta(days=10), 
+                           end=reference_datetime, auto_adjust=True, progress=False)
+        # data = yf.download(ticker_symbol, start=reference_datetime - timedelta(days=10),
+        #            end=reference_datetime, auto_adjust=True, progress=False, verify=False)
 
         # Check if data is empty
         if data.empty:
